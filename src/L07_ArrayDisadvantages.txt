@@ -1,0 +1,9 @@
+// Disadvantages of Array
+
+1. Arrays are fixed in size
+2. Array allows only Homogenous Data
+3. Array can't grow or shrink in size
+4. They demand contigeous memory location
+5. Arrays lacks built in method for many operations.
+
+// Solution is Collection Interface

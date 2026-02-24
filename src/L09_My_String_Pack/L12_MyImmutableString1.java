@@ -19,3 +19,8 @@ public class L12_MyImmutableString1 {
     }
 }
 // if we want to make a string mutable, pass the reference into String Builder & StringBuffer.
+// StringBuffer → introduced in Java 1.0, all methods are synchronized,
+// it is thread-safe, and it is slower.
+
+// StringBuilder → introduced in Java 1.5, methods are not synchronized,
+// it is not thread-safe, and it is faster.

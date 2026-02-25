@@ -10,15 +10,15 @@ class TV {
     }
 
     public void setVolume(int volume) {
-//        if(volume <= 50) {
-//            this.volume = volume;
-//        }
-//        else {
-//            System.out.println("Volume can't be greater than 50");
-//        }
+        if(volume <= 50) {
+            this.volume = volume;
+        }
+        else {
+            System.out.println("Volume can't be greater than 50");
+        }
         // Using Ternary Operator
-        this.volume = (volume <= 50) ? volume : this.volume;
-        System.out.println((volume <= 50) ? "" : "Volume can't be greater than 50");
+//        this.volume = (volume <= 50) ? volume : this.volume;
+//        System.out.println((volume <= 50) ? "" : "Volume can't be greater than 50");
     }
 
     public int getBrightness() {

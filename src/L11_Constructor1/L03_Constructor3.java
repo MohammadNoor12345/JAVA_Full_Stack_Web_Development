@@ -38,6 +38,7 @@ public class L03_Constructor3 {
     public static void main(String[] args) {
 
         Car c = new Car("BMW");
+        Car c1 = new Car();
 
         System.out.println("Car Name: " + c.getName());
         System.out.println("Car Cost: " + c.getCost());

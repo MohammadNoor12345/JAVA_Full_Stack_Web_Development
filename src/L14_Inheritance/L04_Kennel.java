@@ -4,6 +4,7 @@ class Dog {
 
     String name;
     int cost;
+    String breed = "German Shepard";
 
     public Dog(String name) {
         System.out.println("Name Constructor");
@@ -27,7 +28,7 @@ class Dog {
     }
 
     public void bark() {
-        System.out.println("Dog is Barking");
+        System.out.println("Dog Barks loudly");
     }
 }
 
@@ -37,12 +38,19 @@ class Puppy extends Dog {
         System.out.println("Puppy object created");
     }
 
+    @Override
+    public void bark() {
+        System.out.println("Puppy barks in very low voice");
+
+    }
 }
 
 public class L04_Kennel {
 
     public static void main(String[] args) {
         Puppy p = new Puppy();
+        System.out.println(p.breed);
         p.bark();
     }
 }
+// Dynamic polymorphism

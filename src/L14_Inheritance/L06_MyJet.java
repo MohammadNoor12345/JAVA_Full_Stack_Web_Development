@@ -34,6 +34,7 @@ class FighterPlane extends Plane {
     public void fight() {
         System.out.println("FighterPlane is ready to fight");
     }
+
 }
 
 public class L06_MyJet {
@@ -63,3 +64,5 @@ public class L06_MyJet {
         fp.land();
     }
 }
+
+// for a class we need two access modifier are allow public and default(Package)

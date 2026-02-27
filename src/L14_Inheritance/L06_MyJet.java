@@ -36,6 +36,15 @@ class FighterPlane extends Plane {
     }
 
 }
+class Airpot {
+    static void permit(Plane p) {
+        System.out.println("Airport is allowing the planes inside permit()");
+        p.takeoff();
+        p.fly();
+        p.land();
+        System.out.println();
+    }
+}
 
 public class L06_MyJet {
 
@@ -63,6 +72,7 @@ public class L06_MyJet {
 //        fp.fight();
 //        fp.land();
 
+/*
         // This is Dynamic polymorphism
         Plane p;
         CargoPlane cp = new CargoPlane();
@@ -76,7 +86,15 @@ public class L06_MyJet {
         FighterPlane fp = new FighterPlane();
         p = fp;
         p.fly();
-        ((FighterPlane)p).fight();// downcasted
+        ((FighterPlane)p).fight();// downcasted*/
+
+         CargoPlane cp= new CargoPlane();
+         PassengerPlane pp = new PassengerPlane();
+         FighterPlane fp = new FighterPlane();
+
+         Airpot.permit(cp);
+        Airpot.permit(pp);
+        Airpot.permit(fp);
     }
 }
 

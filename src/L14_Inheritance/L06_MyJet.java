@@ -41,27 +41,42 @@ public class L06_MyJet {
 
     public static void main(String[] args) {
 
+//        CargoPlane cp = new CargoPlane();
+//        cp.takeoff();
+//        cp.fly();
+//        cp.carryGoods();
+//        cp.land();
+//
+//        System.out.println("-----");
+//
+//        PassengerPlane pp = new PassengerPlane();
+//        pp.takeoff();
+//        pp.fly();
+//        pp.carryPassengers();
+//        pp.land();
+//
+//        System.out.println("-----");
+//
+//        FighterPlane fp = new FighterPlane();
+//        fp.takeoff();
+//        fp.fly();
+//        fp.fight();
+//        fp.land();
+
+        // This is Dynamic polymorphism
+        Plane p;
         CargoPlane cp = new CargoPlane();
-        cp.takeoff();
-        cp.fly();
-        cp.carryGoods();
-        cp.land();
-
-        System.out.println("-----");
-
+        p = cp;
+        p.fly();
+        ((CargoPlane)p).carryGoods(); // downcasted
         PassengerPlane pp = new PassengerPlane();
-        pp.takeoff();
-        pp.fly();
-        pp.carryPassengers();
-        pp.land();
-
-        System.out.println("-----");
-
+        p = pp;
+        p.fly();
+        ((PassengerPlane)p).carryPassengers();  // downcasted
         FighterPlane fp = new FighterPlane();
-        fp.takeoff();
-        fp.fly();
-        fp.fight();
-        fp.land();
+        p = fp;
+        p.fly();
+        ((FighterPlane)p).fight();// downcasted
     }
 }
 

@@ -89,7 +89,8 @@ class Xyz implements C {
 }
 
 /*
-Rule 9:
+
+Rule-9:
 Class can extend a class and implement interface.
 Order → extends first, then implements.
 */

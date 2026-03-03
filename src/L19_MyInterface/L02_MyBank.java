@@ -18,6 +18,9 @@ class SBI implements ATM {
     public void deposit() {
         System.out.println("depositing in sbi...");
     }
+    public void specialRoi(){
+        System.out.println("SBI offers 85% ROI");
+    }
 
 }
 
@@ -65,5 +68,9 @@ public class L02_MyBank {
         PlutoneMall.getinstalled(sb);
         PlutoneMall.getinstalled(c);
         PlutoneMall.getinstalled(a);
+
+        a.deposit();
+        a.withdraw();
+        ((SBI) sb).specialRoi();
     }
 }

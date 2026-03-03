@@ -1,47 +1,43 @@
 package L19_MyInterface;
 
+import java.util.Scanner;
+
 interface Calculator {
 
-    public abstract void add();
-    public abstract void sub();
+    void add(int a, int b);
+    void sub(int a, int b);
 }
 
 class Calc1 implements Calculator {
 
-    public void add() {
-        int a = 100, b = 200;
+    public void add(int a, int b) {
         System.out.println("a+b = " + (a + b));
     }
 
-    public void sub() {
-        int a = 200, b = 100;
+    public void sub(int a, int b) {
         System.out.println("a-b = " + (a - b));
     }
 }
 
 class SciCalc implements Calculator {
 
-    public void add() {
-        int a = 1000, b = 2000;
-        System.out.println("sum = " + (a + b));
+    public void add(int a, int b) {
+        System.out.println("Sum = " + (a + b));
     }
 
-    public void sub() {
-        int a = 5000, b = 2000;
-        System.out.println("diff = " + (a - b));
+    public void sub(int a, int b) {
+        System.out.println("Difference = " + (a - b));
     }
 }
 
 class MathCalc implements Calculator {
 
-    public void add() {
-        int a = 10, b = 300;
+    public void add(int a, int b) {
         System.out.println("Addition = " + (a + b));
     }
 
-    public void sub() {
-        int x = 1000, y = 100;
-        System.out.println("Subtraction = " + (x - y));
+    public void sub(int a, int b) {
+        System.out.println("Subtraction = " + (a - b));
     }
 }
 
@@ -49,19 +45,30 @@ public class L01_MyOpr {
 
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int num1 = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int num2 = sc.nextInt();
+
         Calculator c1 = new Calc1();
         Calculator c2 = new SciCalc();
         Calculator c3 = new MathCalc();
 
-        c1.add();
-        c1.sub();
-        System.out.println();
+        System.out.println("\nCalc1 Output:");
+        c1.add(num1, num2);
+        c1.sub(num1, num2);
 
-        c2.add();
-        c2.sub();
-        System.out.println();
+        System.out.println("\nSciCalc Output:");
+        c2.add(num1, num2);
+        c2.sub(num1, num2);
 
-        c3.add();
-        c3.sub();
+        System.out.println("\nMathCalc Output:");
+        c3.add(num1, num2);
+        c3.sub(num1, num2);
+
+        sc.close();
     }
 }

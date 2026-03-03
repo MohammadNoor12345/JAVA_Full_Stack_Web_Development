@@ -1,106 +1,69 @@
 package L19_MyInterface;
 
-import java.util.Scanner;
-
 interface ATM {
+    public abstract void withdraw();
 
-    void withdraw(double amount);
-    void deposit(double amount);
+    public abstract void deposit();
+
+    int a = 100;
 }
 
 class SBI implements ATM {
-
-    double balance = 10000;
-
-    public void withdraw(double amount) {
-        if (amount <= balance) {
-            balance -= amount;
-            System.out.println("SBI: Withdraw successful. Remaining balance = " + balance);
-        } else {
-            System.out.println("SBI: Insufficient balance.");
-        }
+    @Override
+    public void withdraw() {
+        System.out.println("WITHDRAWING FROM sbi...");
     }
 
-    public void deposit(double amount) {
-        balance += amount;
-        System.out.println("SBI: Deposit successful. Updated balance = " + balance);
+    @Override
+    public void deposit() {
+        System.out.println("depositing in sbi...");
     }
+
 }
 
 class Canara implements ATM {
 
-    double balance = 20000;
-
-    public void withdraw(double amount) {
-        if (amount <= balance) {
-            balance -= amount;
-            System.out.println("Canara: Withdraw successful. Remaining balance = " + balance);
-        } else {
-            System.out.println("Canara: Insufficient balance.");
-        }
+    @Override
+    public void withdraw() {
+        System.out.println("WITHDRAWING FROM Canara...");
     }
 
-    public void deposit(double amount) {
-        balance += amount;
-        System.out.println("Canara: Deposit successful. Updated balance = " + balance);
+    @Override
+    public void deposit() {
+        System.out.println("depositing in Canara...");
     }
 }
 
 class Axis implements ATM {
 
-    double balance = 15000;
-
-    public void withdraw(double amount) {
-        if (amount <= balance) {
-            balance -= amount;
-            System.out.println("Axis: Withdraw successful. Remaining balance = " + balance);
-        } else {
-            System.out.println("Axis: Insufficient balance.");
-        }
+    @Override
+    public void withdraw() {
+        System.out.println("WITHDRAWING FROM Axis...");
     }
 
-    public void deposit(double amount) {
-        balance += amount;
-        System.out.println("Axis: Deposit successful. Updated balance = " + balance);
+    @Override
+    public void deposit() {
+        System.out.println("depositing in Axis...");
+    }
+}
+
+class PlutoneMall {
+    public static void getinstalled(ATM a) {
+        a.withdraw();
+        a.deposit();
+
     }
 }
 
 public class L02_MyBank {
-
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        ATM sb = new SBI();
+        ATM c = new Canara();
+        ATM a = new Axis();
 
-        System.out.println("Choose Bank: 1.SBI  2.Canara  3.Axis");
-        int choice = sc.nextInt();
-
-        ATM atm = null;
-
-        if (choice == 1) {
-            atm = new SBI();
-        } else if (choice == 2) {
-            atm = new Canara();
-        } else if (choice == 3) {
-            atm = new Axis();
-        } else {
-            System.out.println("Invalid choice");
-            System.exit(0);
-        }
-
-        System.out.println("1.Withdraw  2.Deposit");
-        int operation = sc.nextInt();
-
-        System.out.print("Enter amount: ");
-        double amount = sc.nextDouble();
-
-        if (operation == 1) {
-            atm.withdraw(amount);
-        } else if (operation == 2) {
-            atm.deposit(amount);
-        } else {
-            System.out.println("Invalid operation");
-        }
-
-        sc.close();
+        PlutoneMall.getinstalled(sb);
+        PlutoneMall.getinstalled(c);
+        PlutoneMall.getinstalled(a);
     }
 }

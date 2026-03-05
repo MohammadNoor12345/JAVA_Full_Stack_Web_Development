@@ -13,10 +13,15 @@ public class L03_MyExp3 {
         arr[1] = 20;
         arr[2] = 30;
 
-        System.out.println("Enter the index you need to access : ");
-        int index = sc.nextInt();
+        try {
+            System.out.println("Enter the index you need to access : ");
+            int index = sc.nextInt();
 
-        System.out.println(arr[index]);
+            System.out.println(arr[index]);
+        }
+        catch (Exception e) {
+            System.out.println("Invalid index. Kindly enter index between 0 to 2");
+        }
 
         System.out.println("Connection Terminated");
     }

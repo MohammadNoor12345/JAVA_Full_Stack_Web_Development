@@ -1,4 +1,4 @@
-package L23_MyException;
+package L20_MyException;
 
 import java.util.Scanner;
 

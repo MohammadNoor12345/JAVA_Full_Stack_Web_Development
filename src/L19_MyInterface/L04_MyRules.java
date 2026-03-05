@@ -3,7 +3,7 @@ class MyParent{
     public double add() {
         int a = 10, b = 20;
         System.out.println("a+b = " + (a+b));
-        return  (a+b);
+        return a;
 
     }
 }
@@ -27,9 +27,59 @@ class Tiger{
 
 public class L04_MyRules {
     static void main(String[] args) {
+        MyChild n = new MyChild();
+        n.add();
+//        MyChild m = new MyChild();
+//        m.add();
+    }
+}
+
+/*
+package L19_MyInterface;
+class MyParent{
+    public Animal add() {
+        Animal a = new Animal();
+        return a;
+
+    }
+}
+class MyChild extends MyParent{
+//    @Override
+//    public Animal add() {
+//        Animal a1 = new Animal();
+//        return a1;
+
+//    @Override
+//    public Lion add() {
+//        Lion l = new Lion();
+//        return l;
+//    }
+
+    @Override
+    public Tiger add() {
+        Tiger t = new Tiger();
+        return t;
+    }
+
+
+}
+
+class Animal {
+
+}
+class Lion extends Animal{
+
+
+}
+class Tiger extends Animal{
+
+}
+
+public class L04_MyRules {
+    static void main(String[] args) {
 //        MyChild n = new MyChild();
 //        n.add();
         MyChild m = new MyChild();
         m.add();
     }
-}
+}*/

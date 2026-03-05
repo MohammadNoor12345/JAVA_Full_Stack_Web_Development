@@ -15,7 +15,7 @@ public class Abc{
 class Efg extends Abc{
     @Override
     public void m1() {
-//        System.out.println(a);
+        System.out.println(a);
         System.out.println(b);
         System.out.println(c);
         System.out.println(d);

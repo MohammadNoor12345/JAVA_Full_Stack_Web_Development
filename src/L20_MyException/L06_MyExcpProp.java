@@ -1,5 +1,6 @@
 package L20_MyException;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class Demo3{
@@ -10,6 +11,10 @@ class Demo3{
         System.out.println("Enter your age");
         int age = scan.nextInt();
         System.out.println("Age entered is "+age);
+		/*catch (InputMismatchException e) {
+			System.out.println("Input can't be String");
+			System.out.println("Exception handled in m3()");
+		}*/
         System.out.println("Connection4 terminated");
 
     }
@@ -20,7 +25,13 @@ class Demo2{
     public void m2() {
         System.out.println("Connection3 established");
         Demo3 d3=new Demo3();
-        d3.m3();
+        try {
+            d3.m3();
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Input can't be String");
+            System.out.println("Exception handled in m2()");
+        }
         System.out.println("Connection3 terminated");
 
     }

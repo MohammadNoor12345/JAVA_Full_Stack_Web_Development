@@ -68,5 +68,7 @@ public class L05_MyGeneric {
         System.out.println("Connection terminated gracefully");
 
         sc.close();
+
+        // This is the Generic case
     }
 }

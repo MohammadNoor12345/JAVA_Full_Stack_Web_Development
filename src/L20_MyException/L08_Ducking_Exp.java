@@ -16,6 +16,18 @@ class Demo5{
         System.out.println("Result of a/b is: " + c);
         System.out.println("Connection2 terminated");
     }
+
+}
+class Demo4{
+    public void m4(){
+        Demo5 d5 = new Demo5();
+        try {
+            d5.m5();
+        }
+        catch (Exception e) {
+            System.out.println("Exception handled in m4()");
+        }
+    }
 }
 
 public class L08_Ducking_Exp {

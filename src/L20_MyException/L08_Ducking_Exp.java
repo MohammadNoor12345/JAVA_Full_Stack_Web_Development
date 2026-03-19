@@ -32,6 +32,12 @@ class Demo4{
 
 public class L08_Ducking_Exp {
     static void main(String[] args) {
-
+        Demo4 d4 = new Demo4();
+        try {
+            d4.m4();
+        }
+        catch (Exception e) {
+            System.out.println("Exception handled in main()");
+        }
     }
 }

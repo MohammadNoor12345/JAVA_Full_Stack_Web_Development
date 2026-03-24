@@ -35,6 +35,10 @@ public class L03_RaceCondition_for_SharedResource {
         t2.setName("AWS");
         t3.setName("CYBER");
 
+//        t1.setPriority(3);
+//        t2.setPriority(6);
+//        t3.setPriority(10);
+
         t1.start();
         t2.start();
         t3.start();

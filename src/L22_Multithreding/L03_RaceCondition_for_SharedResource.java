@@ -1,7 +1,7 @@
 package L22_Multithreding;
 
 class WhiteBoard implements Runnable {
-    public void run() {
+    synchronized public void run() {
         String name = Thread.currentThread().getName();
         try {
             System.out.println(name + " trying to access white board");
@@ -9,7 +9,7 @@ class WhiteBoard implements Runnable {
 
             System.out.println(name + " got access to white board");
 
-            for (int i = 1; i <= 5; i++) {
+            for (int i = 1; i <= 10; i++) {
                 System.out.println(name + " writing on the board");
                 Thread.sleep(2000);
             }

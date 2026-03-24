@@ -4,9 +4,9 @@ class MyDemo extends Thread{
     @Override
     public void run() {
 
-        for(int i=1;i<=5;i++) {
+        for(;;) {
             try {
-                System.out.println(i);
+                System.out.println("User Thread");
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block

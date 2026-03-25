@@ -1,6 +1,69 @@
 package L22_Multithreding;
 
 class BPUT extends Thread {
+    String cls1 = "javaclsroom";
+    String cls2 = "awsclsroom";
+
+    @Override
+    public void run() {
+        String name = Thread.currentThread().getName();
+        if (name.equals("JAVATRAINER")) {
+            javatrainerAcquired();
+        } else {
+            awstrainerAcquired();
+        }
+    }
+
+    public void javatrainerAcquired() {
+        synchronized (cls1) {
+            try {
+                System.out.println("Java trainer Acquired javaclass room");
+                Thread.sleep(2000);
+                synchronized (cls2) {
+                    System.out.println("Java trainer Acquired awsclass room");
+                    Thread.sleep(2000);
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Some error occured");
+            }
+        }
+    }
+
+    public void awstrainerAcquired() {
+        synchronized (cls2) {
+            try {
+                System.out.println("AWS trainer Acquired awsclass room");
+                Thread.sleep(2000);
+                synchronized (cls1) {
+                    System.out.println("AWS trainer Acquired javaclass room");
+                    Thread.sleep(2000);
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Some error occured");
+            }
+        }
+    }
+}
+
+public class L08_MyDeadLock {
+
+    public static void main(String[] args) {
+
+        BPUT b = new BPUT();
+        Thread t1 = new Thread(b);
+        Thread t2 = new Thread(b);
+        t1.setName("JAVATRAINER");
+        t2.setName("AWSTRAINER");
+        t1.start();
+        t2.start();
+
+    }
+
+}
+
+/*class BPUT extends Thread {
     String res1 = "JAVACLsROOM";
     String res2 = "AWSCLsROOM";
 
@@ -47,7 +110,7 @@ class BPUT extends Thread {
     }
 }
 
-public class L08_MyDeadLock {
+public class MyDeadLock {
     public static void main(String[] args) {
         BPUT b = new BPUT();
 
@@ -59,6 +122,5 @@ public class L08_MyDeadLock {
 
         t1.start();
         t2.start();
-
     }
-}
+}*/

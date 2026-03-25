@@ -8,7 +8,7 @@ public class L12_MyArrayList {
         * ArrayList is backed by array
         * Array List is dynamic
         * it allows duplicate
-        * it allowsheterogenous type of data
+        * it allows heterogenous type of data
         * it allows null values
         */
 

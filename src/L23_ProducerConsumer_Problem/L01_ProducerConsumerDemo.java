@@ -1,45 +1,75 @@
 package L23_ProducerConsumer_Problem;
 
-// Queue Class
+// Shared Resource
 class Queue {
     int x;
+    boolean hasValue = false;
 
-    void store(int j) {
-        x = j;
+    synchronized void store(int j) {
+        try {
+            while (hasValue) {
+                wait(); // wait if already full
+            }
+
+            x = j;
+            System.out.println("Producer Produced: " + x);
+
+            hasValue = true;
+            notify();
+        } catch (InterruptedException e) {
+            System.out.println("Producer interrupted");
+        }
     }
 
-    void retrieve() {
-        System.out.println(x);
-    }
-}
+    synchronized void retrieve() {
+        try {
+            while (!hasValue) {
+                wait(); // wait if empty
+            }
 
-// Producer Class
-class Producer extends Thread {
-    Queue q;
+            System.out.println("Consumer Consumed: " + x);
 
-    public Producer(Queue k) {
-        q = k;
-    }
-
-    public void run() {
-        int i = 0;
-        for (;;) {
-            q.store(i++);
+            hasValue = false;
+            notify();
+        } catch (InterruptedException e) {
+            System.out.println("Consumer interrupted");
         }
     }
 }
 
-// Consumer Class
-class Consumer extends Thread {
-    Queue b;
+// Producer Thread
+class Producer extends Thread {
+    Queue q;
 
-    public Consumer(Queue q) {
-        b = q;
+    public Producer(Queue q) {
+        this.q = q;
     }
 
     public void run() {
-        for (;;) {
-            b.retrieve();
+        int i = 0;
+        while (true) {
+            q.store(i++);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {}
+        }
+    }
+}
+
+// Consumer Thread
+class Consumer extends Thread {
+    Queue q;
+
+    public Consumer(Queue q) {
+        this.q = q;
+    }
+
+    public void run() {
+        while (true) {
+            q.retrieve();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {}
         }
     }
 }

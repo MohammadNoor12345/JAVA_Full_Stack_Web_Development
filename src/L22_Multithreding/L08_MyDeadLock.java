@@ -1,6 +1,5 @@
 package L22_Multithreding;
 
-
 class BPUT extends Thread {
     String res1 = "JAVACLsROOM";
     String res2 = "AWSCLsROOM";

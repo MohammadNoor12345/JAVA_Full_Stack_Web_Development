@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class L12_MyArrayList {
     static void main(String[] args) {
         /*
-        Array List is dynamic
+        * ArrayList is backed by array
+        * Array List is dynamic
         * it allows duplicate
         * it allowsheterogenous type of data
         * it allows null values

@@ -5,34 +5,34 @@ class Queue {
     int x;
     boolean hasValue = false;
 
-    synchronized void store(int j) {
+    public synchronized void store(int j) {
         try {
             while (hasValue) {
-                wait(); // wait if already full
+                wait(); // wait if full
             }
 
             x = j;
-            System.out.println("Producer Produced: " + x);
+            System.out.println("Producer produced: " + x);
 
             hasValue = true;
             notify();
         } catch (InterruptedException e) {
-            System.out.println("Producer interrupted");
+            e.printStackTrace();
         }
     }
 
-    synchronized void retrieve() {
+    public synchronized void retrieve() {
         try {
             while (!hasValue) {
                 wait(); // wait if empty
             }
 
-            System.out.println("Consumer Consumed: " + x);
+            System.out.println("Consumer consumed: " + x);
 
             hasValue = false;
             notify();
         } catch (InterruptedException e) {
-            System.out.println("Consumer interrupted");
+            e.printStackTrace();
         }
     }
 }
@@ -80,11 +80,10 @@ public class L01_ProducerConsumerDemo {
 
         Queue q = new Queue();
 
-        Producer p = new Producer(q);
-        Consumer c = new Consumer(q);
+        Producer producer = new Producer(q);
+        Consumer consumer = new Consumer(q);
 
-        p.start();
-        c.start();
-
+        producer.start();
+        consumer.start();
     }
 }

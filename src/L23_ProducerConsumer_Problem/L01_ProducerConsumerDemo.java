@@ -1,46 +1,45 @@
 package L23_ProducerConsumer_Problem;
 
-// Shared Resource
+// Queue Class
 class Queue {
     int x;
 
     void store(int j) {
         x = j;
-        System.out.println("Produced: " + x);
     }
 
     void retrieve() {
-        System.out.println("Consumed: " + x);
+        System.out.println(x);
     }
 }
 
-// Producer Thread
+// Producer Class
 class Producer extends Thread {
     Queue q;
 
-    public Producer(Queue q) {
-        this.q = q;
+    public Producer(Queue k) {
+        q = k;
     }
 
     public void run() {
         int i = 0;
-        while (true) {
+        for (;;) {
             q.store(i++);
         }
     }
 }
 
-// Consumer Thread
+// Consumer Class
 class Consumer extends Thread {
-    Queue q;
+    Queue b;
 
     public Consumer(Queue q) {
-        this.q = q;
+        b = q;
     }
 
     public void run() {
-        while (true) {
-            q.retrieve();
+        for (;;) {
+            b.retrieve();
         }
     }
 }

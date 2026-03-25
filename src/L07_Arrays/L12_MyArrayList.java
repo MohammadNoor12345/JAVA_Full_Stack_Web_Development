@@ -6,6 +6,7 @@ public class L12_MyArrayList {
     static void main(String[] args) {
         /*
         * ArrayList is backed by array
+        * it maintains insertion order (Insertion order is preserved)
         * Array List is dynamic
         * it allows duplicate
         * it allows heterogenous type of data
@@ -23,6 +24,10 @@ public class L12_MyArrayList {
         System.out.println(al);
 
         al.add("Rooman");
+        al.add(30);
+        al.add(40);
+        al.add(null);
+        al.add(null);
         System.out.println(al);
         System.out.println();
         System.out.println("Iterating over list using for");

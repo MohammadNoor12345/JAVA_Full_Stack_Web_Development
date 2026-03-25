@@ -3,37 +3,14 @@ package L23_ProducerConsumer_Problem;
 // Shared Resource
 class Queue {
     int x;
-    boolean hasValue = false;
 
-    synchronized void store(int j) {
-        try {
-            while (hasValue) {
-                wait(); // wait if already full
-            }
-
-            x = j;
-            System.out.println("Produced: " + x);
-
-            hasValue = true;
-            notify();
-        } catch (InterruptedException e) {
-            System.out.println("Producer interrupted");
-        }
+    void store(int j) {
+        x = j;
+        System.out.println("Produced: " + x);
     }
 
-    synchronized void retrieve() {
-        try {
-            while (!hasValue) {
-                wait(); // wait if empty
-            }
-
-            System.out.println("Consumed: " + x);
-
-            hasValue = false;
-            notify();
-        } catch (InterruptedException e) {
-            System.out.println("Consumer interrupted");
-        }
+    void retrieve() {
+        System.out.println("Consumed: " + x);
     }
 }
 
@@ -49,9 +26,6 @@ class Producer extends Thread {
         int i = 0;
         while (true) {
             q.store(i++);
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {}
         }
     }
 }
@@ -67,9 +41,6 @@ class Consumer extends Thread {
     public void run() {
         while (true) {
             q.retrieve();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {}
         }
     }
 }

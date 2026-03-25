@@ -60,5 +60,6 @@ public class L08_MyDeadLock {
 
         t1.start();
         t2.start();
+
     }
 }

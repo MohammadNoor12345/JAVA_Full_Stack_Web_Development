@@ -38,12 +38,14 @@ public class L02_MyArrayList {
         while (itr.hasNext()) {
             System.out.println(itr.next());
         }
+
         System.out.println();
         System.out.println("Using List Iterator");
         ListIterator<Integer> litr = al.listIterator();
         while (litr.hasNext()) {
             System.out.println(litr.next());
         }
+
         System.out.println();
         System.out.println("Using List Iterator in reverse order");
         while (litr.hasPrevious()) {

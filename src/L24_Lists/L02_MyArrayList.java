@@ -2,6 +2,7 @@ package L24_Lists;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class L02_MyArrayList {
     public static void main(String[] args) {
@@ -36,6 +37,12 @@ public class L02_MyArrayList {
         Iterator<Integer> itr = al.iterator();
         while (itr.hasNext()) {
             System.out.println(itr.next());
+        }
+        System.out.println();
+        System.out.println("Using List Iterator");
+        ListIterator<Integer> litr = al.listIterator();
+        while (litr.hasNext()) {
+            System.out.println(litr.next());
         }
     }
 }

@@ -5,7 +5,8 @@ interface Calc{
 
 public class L03_MyMain {
     static void main(String[] args) {
-        Calc m1 = (int a, int b) -> a * b;
+//        Calc m1 = (int a, int b) -> a * b;
+        Calc m1 = (a, b) -> a * b;
         int res = m1.mul(10, 20);
         System.out.println("Multiplication is: " + res);
     }

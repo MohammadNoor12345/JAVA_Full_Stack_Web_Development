@@ -1,6 +1,8 @@
 package L26_Functional_Interface;
+@FunctionalInterface
 interface Calc{
     int mul(int a, int b);
+//    int add(int m, int n);
 }
 
 public class L03_MyMain {

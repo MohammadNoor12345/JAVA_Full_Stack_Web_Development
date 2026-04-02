@@ -1,32 +1,26 @@
 // generate a random password such that the even digit always consist of characters and rest are numbers
 package L28_OTP_Generation;
-
 import java.util.function.Supplier;
 
 public class L02_Password {
     public static void main(String[] args) {
+        String symbols = "!@#$%&ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        Supplier<String> passwordSupplier = () -> {
-            String password = "";
-            int length = 8; // you can change length
+        Supplier<Character> s = () -> symbols.charAt((int) (Math.random() * symbols.length()));
 
-            for (int i = 0; i < length; i++) {
+        Supplier<Integer> d = () -> (int) (Math.random() * 10);
 
-                if (i % 2 == 0) {
-                    // even index → character (A-Z)
-                    char ch = (char) ((int)(Math.random() * 26) + 65);
-                    password = password + ch;
-                } else {
-                    // odd index → number (0-9)
-                    int num = (int)(Math.random() * 10);
-                    password = password + num;
-                }
-            }
+        String pwd = "";
 
-            return password;
-        };
+        //another logic
+        for (int i = 1; i <= 4; i++) {
 
-        String result = passwordSupplier.get();
-        System.out.println("Generated Password: " + result);
+            pwd=pwd+d.get();
+            pwd=pwd+s.get();
+
+        }
+
+        System.out.println(pwd);
+
     }
 }
